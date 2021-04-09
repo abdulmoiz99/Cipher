@@ -10,6 +10,40 @@ namespace Cipher
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("====== CIPHER ======");
+            bool run = true;
+            int choice = 0;
+            while (run)
+            {
+                Console.WriteLine("1. Shift Cipher Encrypt");
+                Console.WriteLine("2. Shift Cipher Decrypt");
+                Console.WriteLine("3. Atbash Cipher Encrypt");
+                Console.WriteLine("4. Atbash Cipher Decrypt");
+                Console.WriteLine("5. Rot13 Cipher Encrypt");
+                Console.WriteLine("6. Rot13 Cipher Decrypt");
+                Console.WriteLine("\nEnter Choice: ");
+                int.TryParse(Console.ReadLine(), out choice);
+
+                switch (choice)
+                {
+
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice");
+                        break;
+                }
+            }
         }
     }
 }
