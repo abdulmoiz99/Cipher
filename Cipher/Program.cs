@@ -10,9 +10,15 @@ namespace Cipher
     {
         static void Main(string[] args)
         {
-
-            Cipher.Affine_Decrypt("piwqpgxu kbbgxi wgjniv owniei go oike hq di pgbbgwalh dah ikoy", 19, 10);
-
+            //Console.WriteLine("Cipher Text: yfnzjpflivogvizvetvnzkyjfcmzexwzijktzgyvikvok");
+            //for (int i = 0; i < 26; i++)
+            //{
+            //    Console.WriteLine("Using Key: " + i);
+            //    Cipher.Shift_Decrypt("yfnzjpflivogvizvetvnzkyjfcmzexwzijktzgyvikvok", i);
+            //}
+            //return;
+            string CipherText = "", PlainText = "";
+            int key = 0;
             Console.WriteLine("====== CIPHER ======");
             bool run = true;
             int choice = 0;
@@ -30,17 +36,39 @@ namespace Cipher
                 switch (choice)
                 {
 
-                    case 1:
+                    case 1: // Shift Encrypt
+                        Console.Write("Enter Plain Text: ");
+                        PlainText = Console.ReadLine();
+                        Console.Write("Enter Key:");
+                        key = int.Parse(Console.ReadLine());
+                        Cipher.Shift_Encrypt(PlainText, key);
                         break;
-                    case 2:
+                    case 2: // Shift Decrypt
+                        Console.Write("Enter Cipher Text: ");
+                        CipherText = Console.ReadLine();
+                        Console.Write("Enter Key: ");
+                        key = int.Parse(Console.ReadLine());
+                        Cipher.Shift_Decrypt(CipherText, key);
                         break;
-                    case 3:
+                    case 3: // ATBash Encrypt
+                        Console.Write("Enter Plain Text: ");
+                        PlainText = Console.ReadLine();
+                        Cipher.Atbash_Encrypt(PlainText);
                         break;
-                    case 4:
+                    case 4:// ATBash Decrypt
+                        Console.Write("Enter Cipher Text: ");
+                        CipherText = Console.ReadLine();
+                        Cipher.Atbash_Decrypt(CipherText);
                         break;
-                    case 5:
+                    case 5: // ROT13 Encrypt
+                        Console.Write("Enter Plain Text: ");
+                        PlainText = Console.ReadLine();
+                        Cipher.Rot13_Encrypt(PlainText);
                         break;
-                    case 6:
+                    case 6:// ROT13 Decrypt
+                        Console.Write("Enter Cipher Text: ");
+                        CipherText = Console.ReadLine();
+                        Cipher.Rot13_Decrypt(CipherText);
                         break;
                     default:
                         Console.WriteLine("Invalid Choice");

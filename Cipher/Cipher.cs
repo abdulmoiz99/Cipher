@@ -12,17 +12,14 @@ namespace Cipher
         public static void Shift_Encrypt(string Input, int Key)
         {
             string CipherText = string.Empty;
-
-
-            Input = Input.Replace(" ", string.Empty);
+            Input = Input.Replace(" ", string.Empty).ToUpper();
             char[] plainText = Input.ToCharArray();
 
             for (int i = 0; i < plainText.Length; i++)
             {
                 int value = Main.GetAlphabetValue(plainText[i]);
-                value = value + Key;
 
-                value = value % systemSize;
+                value = (value + Key) % systemSize;
 
                 CipherText += Main.GetAlphabetKey(value);
             }
@@ -32,6 +29,9 @@ namespace Cipher
 
         public static void Shift_Decrypt(string CipherText, int Key)
         {
+            Key = 26 - Key;
+
+         
             string PlainText = string.Empty;
 
             CipherText = CipherText.Replace(" ", string.Empty).ToUpper();
@@ -40,12 +40,14 @@ namespace Cipher
             for (int i = 0; i < cipherText.Length; i++)
             {
                 int value = Main.GetAlphabetValue(cipherText[i]);
-                value = (value - Key) % systemSize;
+                value = value + Key ;
+                value = value % systemSize ;
 
                 PlainText += Main.GetAlphabetKey(value);
             }
             Console.WriteLine("DECRYPTED TEXT= " + PlainText);
         }
+      
         public static void Atbash_Encrypt(string PlainText)
         {
             PlainText = PlainText.Replace(" ", string.Empty).ToUpper();
@@ -161,7 +163,7 @@ namespace Cipher
                     return x;
             }
 
-            throw new Exception("No multiplicative inverse found!");
+             throw new Exception("No multiplicative inverse found!");
         }
     }
 }
